@@ -1,4 +1,5 @@
-name: Make pdf for every release
+---
+name: "pre-release" 
 on:
   push:
     tags:
