@@ -1,22 +1,19 @@
----
-name: "pre-release" 
+name: pre-release
+
 on:
-  push:
-    tags:
-      - release/*
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'New tag name'
+        required: true
+
+# ...
+
 jobs:
-  convert_to_pdf:
+  goreleaser:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out markdown
-        uses: actions/checkout@v2
-      - name: Create files list
-        id: files_list
-        run: |
-          mkdir output
-          echo "::set-output name=files::README.md"
-      - name: Get release version
-        id: release_version
-        run: |
-          echo "::set-output name=release_version::$(echo ${{ github.ref }} | cut --delimiter=/ -f4)"
-      
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - run: git tag ${{ github.event.inputs.tag }}
