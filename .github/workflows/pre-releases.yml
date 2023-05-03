@@ -19,7 +19,7 @@ jobs:
         run: |
           echo "done!"
 
-      - uses: "luckym07/Pr-Review@latest"
+      - uses: "luckym07/Pr-Review@v3"
         with:
           repo_token: "${{ vars.ACCOUNT_GITHUB_TOKEN  }}"
           automatic_release_tag: "latest"
