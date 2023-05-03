@@ -19,7 +19,7 @@ jobs:
         run: |
           echo "done!"
 
-      - uses: "Raghav-Bajaj/action-automatic-releases@latest"
+      - uses: "luckym07/action-automatic-releases@latest"
         with:
           repo_token: "${{ vars.ACCOUNT_GITHUB_TOKEN  }}"
           automatic_release_tag: "latest"
